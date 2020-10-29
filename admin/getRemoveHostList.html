@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/Mainwork/css/menu.css" />
+    <link rel="stylesheet" href="/0813/css/reset.css" />
+    <link rel="stylesheet" href="/0813/css/admin_register_waiting.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="/Mainwork/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" type="text/css" href="/0813/css/style.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="/work/AirHotel/css/SUHWAN.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jua&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css"
+    />
+    <title>관리자 대기 파일</title>
+  </head>
+  <body>
+    <!-- header-start -->
+    <header class="logo">
+      <span style="color: #ff5a5f;"
+        ><i
+          class="fas fa-question"
+          style="font-size: 35px; padding-left: 20px; float: left;"
+        ></i
+      ></span>
+      <label for="fas fa-question" style="font-size: 40px;"
+        >호스트삭제(관리자)</label
+      >
+      <div
+        style="
+          width: 35px;
+          height: 35px;
+          margin-left: 15px;
+          border-radius: 30px 30px 30px 30px;
+          float: right;
+          background-color: white;
+          margin-right: 50px;
+          overflow: hidden;
+        "
+        id="myinfo"
+      >
+        <img
+          alt=""
+          src="/0813/images/chat/my1.jpg"
+          style="max-width: 120%; max-height: 120%;"
+        />
+      </div>
+      <div
+        id="mydiv"
+        style="
+          display: none;
+          margin-top: 20px;
+          margin-left: 85%;
+          width: 200px;
+          background-color: #000000;
+          font-size: 20px;
+          border-radius: 15px 15px 15px 15px;
+          font-family: 'Jua', sans-serif;
+          z-index: 100;
+        "
+      >
+        <ul>
+          <li>
+            <a href="http://localhost:8080/cnc/blamelist.mdo">신고관리</a>
+          </li>
+          <li>
+            <a href="http://localhost:8080/cnc/salesChart.mdo">통계</a>
+          </li>
+          <li>
+            <a href="http://localhost:8080/cnc/getRegisterWaitingList.mdo"
+              >호스트관리</a
+            >
+          </li>
+          <li>
+            <a href="http://localhost:8080/cnc/logPage.mdo">로그관리</a>
+          </li>
+          <li>
+            <a href="http://localhost:8080/cnc/makeCupon.mdo">쿠폰관리</a>
+          </li>
+          <li>
+            <a href="http://localhost:8080/cnc/goNoticeListAdmin.mdo"
+              >게시판관리</a
+            >
+          </li>
+          <li><a href="/cnc/logout.mdo">로그아웃</a></li>
+        </ul>
+      </div>
+    </header>
+    <!-- header-end -->
+
+    <!-- slider_area_start -->
+
+    <br />
+    <div id="sidediv">
+      <ul id="sidemenu">
+        <li class="menu">
+          <a href="getRegisterWaitingList.mdo">숙소 등록 관리</a>
+        </li>
+        <li class="menu">
+          <a href="getRemoveWaitingList.mdo">숙소 삭제 관리</a>
+        </li>
+        <li class="menu">
+          <a id="topmenu" href="getRemoveHostList.mdo">호스트 삭제</a>
+        </li>
+      </ul>
+    </div>
+    <!-- <form action="deleteHost.mdo"> -->
+    <div class="hostList">
+      <h3>호스트 삭제</h3>
+      <ul>
+        <c:forEach items="${hostList}" var="host">
+          <li>
+            <a href="deleteHost.mdo?host_id=${host.host_id}">${host.host_id}</a>
+          </li>
+        </c:forEach>
+      </ul>
+    </div>
+    <!-- 
+        <div style="text-align: center;">
+        <input type="submit" class="btn btn" value="삭제">
+    </div>
+    </form>
+	-->
+  </body>
+  <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script type="text/javascript">
+    $(function () {
+      $("#myinfo").click(function () {
+        $("#mydiv").fadeToggle("slow");
+      });
+    });
+  </script>
+</html>

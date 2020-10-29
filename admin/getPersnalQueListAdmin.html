@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<title>1대1문의-관리자 페이지</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<link rel="shortcut icon" type="image/x-icon" href="../img/favicon.png">
+	<link rel="stylesheet" type="text/css" href="/Mainwork/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="/Mainwork/css/style.css">
+	<link rel="stylesheet" type="text/css" href="/Mainwork/css/menu.css">
+	<link rel="stylesheet" type="text/css" href="/Mainwork/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="/work/AirHotel/css/SUHWAN.css">
+    <link
+    href="https://fonts.googleapis.com/css2?family=Jua&display=swap"
+    rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css"
+    />
+	
+	<style>
+	
+		
+	#main-menu li:nth-child(4)>a {
+		border-left: 1px solid #ee575d;
+	}
+
+	 </style>
+</head>
+<body>
+	<header class="logo">
+        <span style="color: #ff5a5f;"
+          ><i
+            class="fas fa-question"
+            style="font-size: 35px; padding-left: 20px; float: left;"
+          ></i
+        ></span>
+        <label for="fas fa-question" style="font-size: 40px;"
+          >1대1문의(관리자)</label
+        >
+      </header>
+
+    <div class="container">
+    
+    <!-- 좌측 목차 -->
+    <nav role="navigation" style="float: left; width: 30%; margin-top: 15%;" class="center_event">
+	  <ul id="main-menu">
+	    <li><a href="/cnc/goNoticeListAdmin.mdo">공지사항 관리</a></li>
+	    <li><a href="/cnc/goEventListAdmin.mdo">이벤트 관리</a></li>
+	    <li><a href="/cnc/goPolicyListAdmin.mdo">약관정책 관리</a></li>
+	    <li><a href="#">고객센터</a>
+	      <ul id="sub-menu">
+	        <li><a href="/cnc/goPersonalQueListAdmin.mdo" aria-label="subemnu">1대1 문의 관리</a></li>
+	        <li><a href="안내.html" aria-label="subemnu">안내 관리</a></li>
+	      </ul>
+	    </li>
+	   </ul>
+	 </nav>
+	<div id="featured">
+			<div class="title">
+				<h2>1대1문의 관리</h2>
+				<span class="byline">전체 1대1문의를 관리합니다.</span><br><br>
+			</div>
+			
+		<ul class="style1">
+		<c:choose>
+			<c:when test="${!empty personalqList}">
+				<c:forEach items="${personalqList }" var="personalq">
+				
+						<li class="first">
+							<p class="date"><fmt:formatDate value="${personalq.personalq_regdate }" pattern="yyyy-MM-dd"/></p>
+							<h3>글번호 : ${personalq.personalq_idx }번 / 분류 : ${personalq.personalq_type }</h3>
+							<p><a href='<c:url value='/detailPersonalQue/${personalq.personalq_idx }.mdo
+							${paging.makeQueryPage(personalq.personalq_idx, paging.cri.page) }'/>'>${personalq.personalq_title }</a></p>
+						</li>         
+
+				</c:forEach>
+			</c:when>
+			<c:otherwise>
+				<tr>
+					<td colspan="5">등록된 글이 없습니다.</td>
+				</tr>
+			</c:otherwise>
+		</c:choose>
+		</ul>
+			
+		</div>
+
+
+
+	<div style="float: left; width: 30%; " class="center_paging">
+	<!-- Start Pagination -->
+		<ul class="pagination">
+		    <c:if test="${paging.prev }">
+		    <li>
+		        <a href='<c:url value="/goPersonalQueListAdmin.mdo${paging.makeQueryPage(paging.startPage-1) }"/>'>이전</a>
+		    </li>
+		    </c:if>
+		    <c:forEach begin="${paging.startPage }" end="${paging.endPage }" var="pageNum">
+		    <li>
+		        <a href='<c:url value="/goPersonalQueListAdmin.mdo${paging.makeQueryPage(pageNum) }"/>'><i class="fa">${pageNum }</i></a>
+		    </li>
+		    </c:forEach>
+		    <c:if test="${paging.next && paging.endPage >0 }">
+		    <li>
+		        <a href='<c:url value="/goPersonalQueListAdmin.mdo${paging.makeQueryPage(paging.endPage+1) }"/>'>다음</a>
+		    </li>
+		    </c:if>
+		</ul>
+	<!-- End Pagination -->
+		<br></br>
+		<br></br>
+	</div>
+	
+	</div>
+
+</body>
+</html>
