@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<title>1대1문의 등록 페이지</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<link rel="shortcut icon" type="image/x-icon" href="../img/favicon.png">
+	
+	<link rel="stylesheet" type="text/css"
+		href="/Mainwork/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css"
+		href="/Mainwork/css/style.css">
+	<link rel="stylesheet" type="text/css"
+		href="/Mainwork/css/menu.css">
+	<link rel="stylesheet" type="text/css"
+		href="/Mainwork/css/reset.css">	
+	<link rel="stylesheet" type="text/css"
+        href="/work/AirHotel/css/SUHWAN.css">
+        <link rel="stylesheet" type="text/css"
+        href="/work/AirHotel/css/SUHWAN2.css">
+        
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
+    <link
+    href="https://fonts.googleapis.com/css2?family=Jua&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css"
+  />
+	<style>
+	#main-menu li:nth-child(4)>a {
+		border-left: 1px solid #ee575d;
+	}
+	
+	input[type=radio]{
+	  width: 0;
+	  height: 0;
+	  position: absolute;
+	  left: -9999px;
+	}
+	input[type=radio] + label{
+	  margin: 0;
+	  padding: .75em 1.5em;
+	  box-sizing: border-box;
+	  position: relative;
+	  display: inline-block;
+	  border: solid 1px #DDD;
+	  background-color: #FFF;
+	  line-height: 140%;
+	  text-align: center;
+	  transition: border-color .15s ease-out,  color .25s ease-out,  background-color .15s ease-out, box-shadow .15s ease-out;
+	  cursor: pointer;
+	  border-radius: 10px;
+	}
+	input[type=radio]:checked + label{
+	  background-color: #ff5a5f;
+	  color: #FFF;
+	  z-index: 1;
+    }
+    label {
+        color: #046b6b;
+    }
+	</style>
+</head>
+<body>
+    <header class="logo">
+        <span style="color: #ff5a5f;"
+          ><i
+            class="fas fa-question"
+            style="font-size: 35px; padding-left: 20px; float: left;"
+          ></i
+        ></span>
+        <label for="fas fa-question" style="font-size: 40px;"
+          >약관등록(관리자)</label
+        >
+      </header>
+
+	<div class="container">
+	<!-- 좌측 목차 -->
+    <nav role="navigation" style="float: left; width: 30%; margin-top: 20%;" class="center_event">
+	  <ul id="main-menu">
+	    <li><a href="/cnc/selectBoardList.do">공지사항</a></li>
+	    <li><a href="/cnc/selectEventList.do">이벤트</a></li>
+	    <li><a href="/cnc/selectPolicyList.do">약관정책</a></li>
+	    <li><a href="#">고객센터</a>
+	      <ul id="sub-menu">
+	        <li><a href="/cnc/goaddPersonalQue.do" aria-label="subemnu">1대1 문의</a></li>
+	        <li><a href="/cnc/selectPersonalQueList.do" aria-label="subemnu">나의 질문</a></li>
+	        <li><a href="#" aria-label="subemnu">안내</a></li>
+	      </ul>
+	    </li>
+	   </ul>
+	 </nav>
+	 
+	 <!-- 우측 게시판 -->
+
+	<div id="featured" style="margin-right: 3%;">
+	<div class="title">
+					<h2>1대1문의 등록하기</h2>
+					<span class="byline">질문을 등록합니다.</span><br><br>
+				</div>
+		<ul>
+            <li>
+                <form  action="/cnc/addPersonalQueList.do" method="POST" >
+                
+                <label>질문의 유형을 선택해주세요.</label><br /><br />
+                
+                	<input type="radio" id="option1" name="personalq_type" value="예약결제" checked="checked">
+					<label for="option1">예약결제</label>
+					<input type="radio" id="option2" name="personalq_type" value="예약취소">
+					<label for="option2">예약취소</label>
+					<input type="radio" id="option3" name="personalq_type" value="이용문의">
+					<label for="option3">이용문의</label>
+					<input type="radio" id="option4" name="personalq_type" value="회원정보">
+					<label for="option4">회원정보</label>
+					<input type="radio" id="option5" name="personalq_type" value="기타문의">
+					<label for="option5">기타문의</label>
+					
+					<br></br>
+					
+					<input name="personalq_title" class="" type="text" value="당신의 질문의 제목을 입력하세요."
+					onfocus="if(this.value == '당신의 질문의 제목을 입력하세요.') { this.value = ''; }"
+					onblur="if(this.value == '') { this.value = '당신의 질문의 제목을 입력하세요.'; }" />
+					<textarea name="personalq_content" cols="" rows=""
+					onfocus="if(this.value == '당신의 질문의 내용을 입력하세요.') { this.value = ''; }"
+					onblur="if(this.value == '') { this.value = '당신의 질문의 내용을 입력하세요.'; }">당신의 질문의 내용을 입력하세요.</textarea>
+				</br>
+					<input type="submit" value="등록" class="submitbtn" />
+					<input type="button" value="취소" class="submitbtn" 
+					onclick="location.href='/cnc/selectPersonalQueList.do'"/>
+                </form>
+			</li>
+		</ul>
+	</div>
+	</div>
+
+</body>
+</html>
