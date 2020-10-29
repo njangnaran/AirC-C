@@ -1,0 +1,81 @@
+body {
+  font-family: "Jua", sans-serif;
+}
+
+button {
+  color: white;
+  display: inline-block;
+  width: auto;
+  height: auto;
+  background-color: #ff5a5f;
+  border-radius: 5px;
+  font-size: 17px;
+  text-decoration: none;
+  padding: 8px;
+  border: none;
+  font-size: 30px;
+}
+h3,
+h4 {
+  color: #046b6b;
+}
+.form {
+  text-align: center;
+}
+.guestcount {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+.guestbad {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+.title {
+  color: #046b6b;
+  margin-top: 30px;
+  padding-top: 30px;
+  text-align: center;
+  font-size: 55px;
+  font-weight: bold;
+}
+.title1 {
+  color: #046b6b;
+  margin-top: 30px;
+  padding-top: 30px;
+  text-align: center;
+  font-size: 25px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+}
+.title2 {
+  margin-top: 10px;
+  padding-top: 10px;
+  text-align: center;
+  font-size: 25px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+}
+.bad {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+.guestbadcount1 {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+.form .guestcount {
+  padding-left: 15px;
+  margin-left: 15px;
+}
+.form .guestcount label {
+  font-size: 20px;
+  text-align: left;
+}
+.form .control1 {
+  padding: 0 30px 16px 30px;
+}
+.form .control2 {
+  padding: 0 30px 16px 30px;
+}

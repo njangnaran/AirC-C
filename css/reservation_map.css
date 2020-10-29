@@ -1,0 +1,93 @@
+body{
+    font-family: "Jua", sans-serif;
+}
+
+hr{
+   	float: left;
+ 	width: 100%;
+ 	color : black;
+}
+
+main{
+    margin : 2% 0 10%;
+}
+
+.containerr{
+    width: 100%;
+    padding-right: 10px;
+    padding-left: 10px;
+    margin-right: auto;
+    margin-left: auto;
+    height : 460px;
+}
+
+.searchZone{
+    margin-bottom : 2%;
+}
+
+.searchOptions{
+    text-align : center;
+}
+
+.searchConditions{
+    margin-left : 3%;
+}
+
+#searchDetails{
+    margin-right : 2%;
+    float : right;
+}
+
+.hiddenDetails{
+    display : none;
+    margin-bottom : 10;
+}
+.hiddenDetails table {
+    display : none;
+}
+
+#map {
+    width : 40%;
+    height : 600px;
+    float : right;
+}
+
+.houseList {
+	float : left;
+  	display: table-cell;
+  	text-align: left;
+  	width : 98%;
+  	color: black;
+  	padding : 5px 0 5px;
+  	border-bottom : 1px solid gray;
+}
+
+.littleImg{
+    width : 120px;
+    height : 120px;
+    float : left;
+    margin-right: 8px;
+}
+
+footer {
+    clear : both;
+    z-index : 999;
+}
+
+.hidden{
+    display : none;
+}
+
+.mapComment {
+    float : none;
+}
+
+.house_name{
+	color : black;
+	align: center;
+}
+
+.mapSide{
+	height : 600px;
+	overflow : scroll;
+}
